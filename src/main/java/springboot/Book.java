@@ -14,7 +14,6 @@ public class Book {
        String publisher;
        String pages;
        String description;
-       String patata;
 
 
 }
