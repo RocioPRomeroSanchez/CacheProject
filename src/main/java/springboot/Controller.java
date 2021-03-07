@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
+@RequestMapping("/library")
 @CacheConfig()
 public class Controller {
 
@@ -14,13 +15,16 @@ public class Controller {
     Repositorio repository;
 
 
-    @RequestMapping("/getBooks")
+    @GetMapping("/getBooks")
     public Book[] getBooks() {
         return repository.getBooks();
     }
 
-    @RequestMapping("/postBook")
-    public Book postBook(@RequestBody Book book) {
+    @PostMapping("/postBooks")
+    public Book postBook(@RequestBody Book book) throws InterruptedException {
+        System.out.println("Hola");
+        Thread.sleep(10000);
+        System.out.println("Adios");
         return repository.postBooks(book);
     }
 
